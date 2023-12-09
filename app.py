@@ -30,3 +30,11 @@ st.subheader('Iris Dataset - Sepal Dimensions')
 fig, ax = plt.subplots()
 sns.scatterplot(data=df, x='SepalLengthCm', y='SepalWidthCm', hue='Species', ax=ax)
 st.pyplot(fig)
+
+# Creating a pie chart for species distribution
+st.subheader('Iris Species Distribution')
+species_counts = df['Species'].value_counts()
+fig, ax = plt.subplots()
+ax.pie(species_counts, labels=species_counts.index, autopct='%1.1f%%', startangle=90)
+ax.axis('equal')  # Equal aspect ratio ensures that the pie chart is circular.
+st.pyplot(fig)
